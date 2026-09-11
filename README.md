@@ -107,12 +107,41 @@ cd app && flutter run
 Bump `version:` in `app/pubspec.yaml` before every upload — the part after `+`
 is the version code, and the Play Console rejects a code it has already seen.
 
+### Privacy policy
+
+`docs/privacy-policy.html` is ready to serve from GitHub Pages: in the repo
+settings, set Pages to build from the default branch's `/docs` folder, and the
+policy lands at `https://<user>.github.io/<repo>/privacy-policy.html`. That is
+the URL the Play Console asks for.
+
+Replace the two `REPLACE_WITH_` placeholders in the file before publishing it.
+The policy claims the app collects nothing and requests no permissions, which
+is true of the release build today — if a later version adds analytics,
+crash reporting, or any network call, update the page first.
+
 ### Still to do before a first release
 
-- **Launcher icon and store graphics.** The app still ships Flutter's default
-  icon. You need a 512×512 icon, a 1024×500 feature graphic, and screenshots.
-- **Privacy policy.** Required by the Play Console. The app collects nothing
-  and has no network access, which makes the policy short, but the listing
-  still needs a URL.
+- **Store graphics.** The launcher icon and the 512×512 listing icon are
+  generated (see below), but you still need a 1024×500 feature graphic and
+  phone screenshots taken on a real device or emulator.
 - **Content rating and data safety form.** Both are questionnaires in the
   console.
+- **Closed testing.** Personal developer accounts must run a closed test with
+  at least 12 testers for 14 days before applying for production access.
+  Check the current rule in the console — it changes.
+
+## Artwork
+
+`engine/`-style tooling lives in the app too:
+
+```bash
+cd app
+flutter test tool/generate_icons.dart   # launcher + store icons
+flutter test tool/screenshots.dart      # renders the screens to store/screens/
+```
+
+The icons are drawn in `lib/branding/app_icon_art.dart` as vector paths and
+rasterised through Flutter's own renderer, so editing that file and re-running
+the tool updates every density at once. The screenshot tool is a development
+aid for reviewing the UI without a device — Play Store listing shots should
+come from a real device.
