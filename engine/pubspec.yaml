@@ -1,0 +1,10 @@
+name: trump_engine
+description: Pure Dart rules engine for a Top Trumps style statistics card game.
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ^3.5.0
+
+dev_dependencies:
+  test: ^1.25.0
