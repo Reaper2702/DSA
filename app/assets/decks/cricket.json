@@ -1,0 +1,718 @@
+{
+  "id": "cricket",
+  "name": "Cricket All-Stars",
+  "tagline": "Fifty-two fictional cricketers, one stat at a time.",
+  "stats": [
+    {
+      "key": "matches",
+      "label": "Matches",
+      "direction": "higher"
+    },
+    {
+      "key": "runs",
+      "label": "Runs",
+      "direction": "higher"
+    },
+    {
+      "key": "batting_avg",
+      "label": "Batting Avg",
+      "direction": "higher",
+      "decimals": 2
+    },
+    {
+      "key": "strike_rate",
+      "label": "Strike Rate",
+      "direction": "higher",
+      "decimals": 2
+    },
+    {
+      "key": "wickets",
+      "label": "Wickets",
+      "direction": "higher"
+    },
+    {
+      "key": "bowling_avg",
+      "label": "Bowling Avg",
+      "direction": "lower",
+      "decimals": 2
+    }
+  ],
+  "cards": [
+    {
+      "id": "arjun_deshmukh",
+      "name": "Arjun Deshmukh",
+      "subtitle": "India • Top order batter",
+      "stats": {
+        "matches": 160,
+        "runs": 6926,
+        "batting_avg": 42.45,
+        "strike_rate": 76.41,
+        "wickets": 32,
+        "bowling_avg": 66.64
+      }
+    },
+    {
+      "id": "rohan_sekhri",
+      "name": "Rohan Sekhri",
+      "subtitle": "India • Opening batter",
+      "stats": {
+        "matches": 161,
+        "runs": 6695,
+        "batting_avg": 49.3,
+        "strike_rate": 91.13,
+        "wickets": 35,
+        "bowling_avg": 68.4
+      }
+    },
+    {
+      "id": "tom_ashworth",
+      "name": "Tom Ashworth",
+      "subtitle": "England • Opening batter",
+      "stats": {
+        "matches": 181,
+        "runs": 4593,
+        "batting_avg": 40.75,
+        "strike_rate": 79.23,
+        "wickets": 32,
+        "bowling_avg": 51.02
+      }
+    },
+    {
+      "id": "callum_pryce",
+      "name": "Callum Pryce",
+      "subtitle": "England • Middle order batter",
+      "stats": {
+        "matches": 155,
+        "runs": 6946,
+        "batting_avg": 48.88,
+        "strike_rate": 77.55,
+        "wickets": 34,
+        "bowling_avg": 47.66
+      }
+    },
+    {
+      "id": "jaden_whitlock",
+      "name": "Jaden Whitlock",
+      "subtitle": "Australia • Top order batter",
+      "stats": {
+        "matches": 190,
+        "runs": 5582,
+        "batting_avg": 43.63,
+        "strike_rate": 92.84,
+        "wickets": 23,
+        "bowling_avg": 49.41
+      }
+    },
+    {
+      "id": "marcus_tindall",
+      "name": "Marcus Tindall",
+      "subtitle": "Australia • Middle order batter",
+      "stats": {
+        "matches": 203,
+        "runs": 8450,
+        "batting_avg": 38.07,
+        "strike_rate": 85.23,
+        "wickets": 23,
+        "bowling_avg": 52.32
+      }
+    },
+    {
+      "id": "dion_alleyne",
+      "name": "Dion Alleyne",
+      "subtitle": "West Indies • Opening batter",
+      "stats": {
+        "matches": 163,
+        "runs": 4078,
+        "batting_avg": 40.32,
+        "strike_rate": 82.56,
+        "wickets": 8,
+        "bowling_avg": 63.1
+      }
+    },
+    {
+      "id": "kyle_brathnall",
+      "name": "Kyle Brathnall",
+      "subtitle": "West Indies • Middle order batter",
+      "stats": {
+        "matches": 102,
+        "runs": 7715,
+        "batting_avg": 46.46,
+        "strike_rate": 91.87,
+        "wickets": 13,
+        "bowling_avg": 52.95
+      }
+    },
+    {
+      "id": "pieter_van_wyk",
+      "name": "Pieter van Wyk",
+      "subtitle": "South Africa • Top order batter",
+      "stats": {
+        "matches": 202,
+        "runs": 3640,
+        "batting_avg": 42.91,
+        "strike_rate": 77.54,
+        "wickets": 25,
+        "bowling_avg": 49.89
+      }
+    },
+    {
+      "id": "ruan_bezuidenhout",
+      "name": "Ruan Bezuidenhout",
+      "subtitle": "South Africa • Middle order batter",
+      "stats": {
+        "matches": 174,
+        "runs": 5080,
+        "batting_avg": 47.33,
+        "strike_rate": 76.33,
+        "wickets": 6,
+        "bowling_avg": 48.48
+      }
+    },
+    {
+      "id": "imran_shafqat",
+      "name": "Imran Shafqat",
+      "subtitle": "Pakistan • Opening batter",
+      "stats": {
+        "matches": 182,
+        "runs": 7779,
+        "batting_avg": 38.4,
+        "strike_rate": 77.01,
+        "wickets": 28,
+        "bowling_avg": 58.37
+      }
+    },
+    {
+      "id": "hasan_zubairi",
+      "name": "Hasan Zubairi",
+      "subtitle": "Pakistan • Middle order batter",
+      "stats": {
+        "matches": 125,
+        "runs": 6564,
+        "batting_avg": 44.32,
+        "strike_rate": 83.72,
+        "wickets": 35,
+        "bowling_avg": 62.61
+      }
+    },
+    {
+      "id": "nuwan_peiris",
+      "name": "Nuwan Peiris",
+      "subtitle": "Sri Lanka • Top order batter",
+      "stats": {
+        "matches": 184,
+        "runs": 7473,
+        "batting_avg": 40.56,
+        "strike_rate": 93.61,
+        "wickets": 9,
+        "bowling_avg": 70.5
+      }
+    },
+    {
+      "id": "kane_marsters",
+      "name": "Kane Marsters",
+      "subtitle": "New Zealand • Middle order batter",
+      "stats": {
+        "matches": 115,
+        "runs": 7441,
+        "batting_avg": 42.69,
+        "strike_rate": 82.08,
+        "wickets": 27,
+        "bowling_avg": 48.84
+      }
+    },
+    {
+      "id": "ayaan_chaubey",
+      "name": "Ayaan Chaubey",
+      "subtitle": "India • Wicketkeeper batter",
+      "stats": {
+        "matches": 118,
+        "runs": 5924,
+        "batting_avg": 39.77,
+        "strike_rate": 100.87,
+        "wickets": 10,
+        "bowling_avg": 68.81
+      }
+    },
+    {
+      "id": "sam_pettigrew",
+      "name": "Sam Pettigrew",
+      "subtitle": "England • Wicketkeeper batter",
+      "stats": {
+        "matches": 101,
+        "runs": 2757,
+        "batting_avg": 38.65,
+        "strike_rate": 102.59,
+        "wickets": 10,
+        "bowling_avg": 77.65
+      }
+    },
+    {
+      "id": "oscar_rieland",
+      "name": "Oscar Rieland",
+      "subtitle": "Australia • Wicketkeeper batter",
+      "stats": {
+        "matches": 155,
+        "runs": 4698,
+        "batting_avg": 38.96,
+        "strike_rate": 116.27,
+        "wickets": 9,
+        "bowling_avg": 69.21
+      }
+    },
+    {
+      "id": "nico_havenga",
+      "name": "Nico Havenga",
+      "subtitle": "South Africa • Wicketkeeper batter",
+      "stats": {
+        "matches": 107,
+        "runs": 6200,
+        "batting_avg": 43.19,
+        "strike_rate": 123.61,
+        "wickets": 8,
+        "bowling_avg": 65.03
+      }
+    },
+    {
+      "id": "zohaib_qamar",
+      "name": "Zohaib Qamar",
+      "subtitle": "Pakistan • Wicketkeeper batter",
+      "stats": {
+        "matches": 154,
+        "runs": 5118,
+        "batting_avg": 31.71,
+        "strike_rate": 122.55,
+        "wickets": 12,
+        "bowling_avg": 64.17
+      }
+    },
+    {
+      "id": "reuben_vercoe",
+      "name": "Reuben Vercoe",
+      "subtitle": "New Zealand • Wicketkeeper batter",
+      "stats": {
+        "matches": 152,
+        "runs": 7168,
+        "batting_avg": 38.07,
+        "strike_rate": 112.0,
+        "wickets": 4,
+        "bowling_avg": 63.79
+      }
+    },
+    {
+      "id": "karthik_ravindran",
+      "name": "Karthik Ravindran",
+      "subtitle": "India • Batting all-rounder",
+      "stats": {
+        "matches": 229,
+        "runs": 2848,
+        "batting_avg": 35.89,
+        "strike_rate": 100.83,
+        "wickets": 214,
+        "bowling_avg": 35.28
+      }
+    },
+    {
+      "id": "yuvan_sathe",
+      "name": "Yuvan Sathe",
+      "subtitle": "India • Bowling all-rounder",
+      "stats": {
+        "matches": 225,
+        "runs": 4405,
+        "batting_avg": 32.87,
+        "strike_rate": 100.47,
+        "wickets": 145,
+        "bowling_avg": 33.72
+      }
+    },
+    {
+      "id": "harry_stanbridge",
+      "name": "Harry Stanbridge",
+      "subtitle": "England • Batting all-rounder",
+      "stats": {
+        "matches": 139,
+        "runs": 3114,
+        "batting_avg": 30.49,
+        "strike_rate": 102.01,
+        "wickets": 233,
+        "bowling_avg": 35.51
+      }
+    },
+    {
+      "id": "freddie_colclough",
+      "name": "Freddie Colclough",
+      "subtitle": "England • Bowling all-rounder",
+      "stats": {
+        "matches": 135,
+        "runs": 4791,
+        "batting_avg": 30.74,
+        "strike_rate": 97.26,
+        "wickets": 151,
+        "bowling_avg": 35.1
+      }
+    },
+    {
+      "id": "ryan_mulvaney",
+      "name": "Ryan Mulvaney",
+      "subtitle": "Australia • Batting all-rounder",
+      "stats": {
+        "matches": 217,
+        "runs": 2283,
+        "batting_avg": 29.4,
+        "strike_rate": 97.3,
+        "wickets": 104,
+        "bowling_avg": 36.33
+      }
+    },
+    {
+      "id": "toby_winslade",
+      "name": "Toby Winslade",
+      "subtitle": "Australia • Bowling all-rounder",
+      "stats": {
+        "matches": 212,
+        "runs": 2516,
+        "batting_avg": 35.65,
+        "strike_rate": 101.56,
+        "wickets": 242,
+        "bowling_avg": 36.28
+      }
+    },
+    {
+      "id": "jermaine_catlyn",
+      "name": "Jermaine Catlyn",
+      "subtitle": "West Indies • Batting all-rounder",
+      "stats": {
+        "matches": 149,
+        "runs": 3869,
+        "batting_avg": 29.45,
+        "strike_rate": 93.64,
+        "wickets": 195,
+        "bowling_avg": 31.48
+      }
+    },
+    {
+      "id": "dwayne_fontenelle",
+      "name": "Dwayne Fontenelle",
+      "subtitle": "West Indies • Bowling all-rounder",
+      "stats": {
+        "matches": 122,
+        "runs": 3796,
+        "batting_avg": 25.77,
+        "strike_rate": 94.21,
+        "wickets": 182,
+        "bowling_avg": 35.96
+      }
+    },
+    {
+      "id": "sipho_ndlovu",
+      "name": "Sipho Ndlovu",
+      "subtitle": "South Africa • Batting all-rounder",
+      "stats": {
+        "matches": 185,
+        "runs": 2415,
+        "batting_avg": 36.66,
+        "strike_rate": 92.74,
+        "wickets": 243,
+        "bowling_avg": 36.34
+      }
+    },
+    {
+      "id": "jacques_oosthuizen",
+      "name": "Jacques Oosthuizen",
+      "subtitle": "South Africa • Bowling all-rounder",
+      "stats": {
+        "matches": 176,
+        "runs": 2184,
+        "batting_avg": 36.91,
+        "strike_rate": 96.69,
+        "wickets": 223,
+        "bowling_avg": 35.3
+      }
+    },
+    {
+      "id": "faraz_nadeem",
+      "name": "Faraz Nadeem",
+      "subtitle": "Pakistan • Batting all-rounder",
+      "stats": {
+        "matches": 217,
+        "runs": 4361,
+        "batting_avg": 34.43,
+        "strike_rate": 91.56,
+        "wickets": 217,
+        "bowling_avg": 34.68
+      }
+    },
+    {
+      "id": "tim_halloway",
+      "name": "Tim Halloway",
+      "subtitle": "New Zealand • Bowling all-rounder",
+      "stats": {
+        "matches": 209,
+        "runs": 3611,
+        "batting_avg": 35.5,
+        "strike_rate": 91.91,
+        "wickets": 202,
+        "bowling_avg": 31.6
+      }
+    },
+    {
+      "id": "ishaan_palekar",
+      "name": "Ishaan Palekar",
+      "subtitle": "India • Right-arm fast",
+      "stats": {
+        "matches": 157,
+        "runs": 751,
+        "batting_avg": 17.07,
+        "strike_rate": 88.9,
+        "wickets": 257,
+        "bowling_avg": 26.76
+      }
+    },
+    {
+      "id": "devraj_kulkarni",
+      "name": "Devraj Kulkarni",
+      "subtitle": "India • Left-arm orthodox",
+      "stats": {
+        "matches": 150,
+        "runs": 650,
+        "batting_avg": 11.72,
+        "strike_rate": 60.33,
+        "wickets": 333,
+        "bowling_avg": 28.41
+      }
+    },
+    {
+      "id": "ollie_fairbrass",
+      "name": "Ollie Fairbrass",
+      "subtitle": "England • Right-arm seam",
+      "stats": {
+        "matches": 81,
+        "runs": 406,
+        "batting_avg": 9.76,
+        "strike_rate": 74.33,
+        "wickets": 296,
+        "bowling_avg": 28.4
+      }
+    },
+    {
+      "id": "nathan_corbyn",
+      "name": "Nathan Corbyn",
+      "subtitle": "England • Left-arm spin",
+      "stats": {
+        "matches": 164,
+        "runs": 192,
+        "batting_avg": 12.1,
+        "strike_rate": 89.65,
+        "wickets": 355,
+        "bowling_avg": 27.3
+      }
+    },
+    {
+      "id": "beau_hargreave",
+      "name": "Beau Hargreave",
+      "subtitle": "Australia • Right-arm fast",
+      "stats": {
+        "matches": 168,
+        "runs": 470,
+        "batting_avg": 12.24,
+        "strike_rate": 71.37,
+        "wickets": 238,
+        "bowling_avg": 24.87
+      }
+    },
+    {
+      "id": "lachlan_ferriday",
+      "name": "Lachlan Ferriday",
+      "subtitle": "Australia • Leg spin",
+      "stats": {
+        "matches": 95,
+        "runs": 625,
+        "batting_avg": 12.27,
+        "strike_rate": 83.9,
+        "wickets": 283,
+        "bowling_avg": 27.02
+      }
+    },
+    {
+      "id": "andre_castell",
+      "name": "Andre Castell",
+      "subtitle": "West Indies • Right-arm fast",
+      "stats": {
+        "matches": 77,
+        "runs": 425,
+        "batting_avg": 9.22,
+        "strike_rate": 61.97,
+        "wickets": 272,
+        "bowling_avg": 25.92
+      }
+    },
+    {
+      "id": "shamar_linley",
+      "name": "Shamar Linley",
+      "subtitle": "West Indies • Left-arm fast",
+      "stats": {
+        "matches": 146,
+        "runs": 256,
+        "batting_avg": 10.51,
+        "strike_rate": 87.62,
+        "wickets": 294,
+        "bowling_avg": 22.94
+      }
+    },
+    {
+      "id": "thabo_mkhwanazi",
+      "name": "Thabo Mkhwanazi",
+      "subtitle": "South Africa • Right-arm fast",
+      "stats": {
+        "matches": 77,
+        "runs": 609,
+        "batting_avg": 18.32,
+        "strike_rate": 92.42,
+        "wickets": 320,
+        "bowling_avg": 27.05
+      }
+    },
+    {
+      "id": "wynand_terblanche",
+      "name": "Wynand Terblanche",
+      "subtitle": "South Africa • Off spin",
+      "stats": {
+        "matches": 141,
+        "runs": 269,
+        "batting_avg": 14.52,
+        "strike_rate": 60.3,
+        "wickets": 337,
+        "bowling_avg": 26.93
+      }
+    },
+    {
+      "id": "saeed_ghauri",
+      "name": "Saeed Ghauri",
+      "subtitle": "Pakistan • Right-arm fast",
+      "stats": {
+        "matches": 115,
+        "runs": 894,
+        "batting_avg": 11.1,
+        "strike_rate": 85.35,
+        "wickets": 399,
+        "bowling_avg": 26.17
+      }
+    },
+    {
+      "id": "bilal_ahsan",
+      "name": "Bilal Ahsan",
+      "subtitle": "Pakistan • Left-arm fast",
+      "stats": {
+        "matches": 143,
+        "runs": 547,
+        "batting_avg": 13.67,
+        "strike_rate": 81.49,
+        "wickets": 312,
+        "bowling_avg": 23.68
+      }
+    },
+    {
+      "id": "dilan_ratnasinghe",
+      "name": "Dilan Ratnasinghe",
+      "subtitle": "Sri Lanka • Off spin",
+      "stats": {
+        "matches": 129,
+        "runs": 416,
+        "batting_avg": 17.29,
+        "strike_rate": 88.64,
+        "wickets": 247,
+        "bowling_avg": 22.16
+      }
+    },
+    {
+      "id": "trent_blackmore",
+      "name": "Trent Blackmore",
+      "subtitle": "New Zealand • Right-arm seam",
+      "stats": {
+        "matches": 109,
+        "runs": 398,
+        "batting_avg": 17.35,
+        "strike_rate": 89.09,
+        "wickets": 214,
+        "bowling_avg": 24.05
+      }
+    },
+    {
+      "id": "sanjay_bhatnagar",
+      "name": "Sanjay Bhatnagar",
+      "subtitle": "India • Legend • Batter",
+      "stats": {
+        "matches": 276,
+        "runs": 13377,
+        "batting_avg": 55.84,
+        "strike_rate": 91.35,
+        "wickets": 26,
+        "bowling_avg": 59.03
+      }
+    },
+    {
+      "id": "hendrik_gouws",
+      "name": "Hendrik Gouws",
+      "subtitle": "South Africa • Legend • Batter",
+      "stats": {
+        "matches": 290,
+        "runs": 11087,
+        "batting_avg": 54.12,
+        "strike_rate": 86.26,
+        "wickets": 11,
+        "bowling_avg": 49.37
+      }
+    },
+    {
+      "id": "gavin_thorncroft",
+      "name": "Gavin Thorncroft",
+      "subtitle": "England • Legend • All-rounder",
+      "stats": {
+        "matches": 257,
+        "runs": 6884,
+        "batting_avg": 40.45,
+        "strike_rate": 96.17,
+        "wickets": 245,
+        "bowling_avg": 29.33
+      }
+    },
+    {
+      "id": "everton_maltby",
+      "name": "Everton Maltby",
+      "subtitle": "West Indies • Legend • All-rounder",
+      "stats": {
+        "matches": 289,
+        "runs": 8981,
+        "batting_avg": 39.42,
+        "strike_rate": 92.25,
+        "wickets": 279,
+        "bowling_avg": 29.68
+      }
+    },
+    {
+      "id": "warrick_delaine",
+      "name": "Warrick Delaine",
+      "subtitle": "Australia • Legend • Fast bowler",
+      "stats": {
+        "matches": 224,
+        "runs": 1286,
+        "batting_avg": 10.87,
+        "strike_rate": 64.93,
+        "wickets": 542,
+        "bowling_avg": 20.3
+      }
+    },
+    {
+      "id": "asif_rahmani",
+      "name": "Asif Rahmani",
+      "subtitle": "Pakistan • Legend • Fast bowler",
+      "stats": {
+        "matches": 225,
+        "runs": 1040,
+        "batting_avg": 20.17,
+        "strike_rate": 70.8,
+        "wickets": 432,
+        "bowling_avg": 21.39
+      }
+    }
+  ]
+}
