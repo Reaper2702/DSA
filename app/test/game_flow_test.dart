@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:trump_cards/data/deck_repository.dart';
 import 'package:trump_cards/main.dart';
+import 'package:trump_cards/widgets/played_card.dart';
 import 'package:trump_cards/widgets/round_reveal.dart';
 
 /// Serves the real deck file from disk without going through the asset
@@ -85,6 +86,30 @@ void main() {
 
     expect(find.text('Round 1'), findsOneWidget);
   });
+
+  // The default 800x600 test surface hides layout overflows that a real phone
+  // would hit, so these play a round at phone sizes. flutter_test turns an
+  // overflow into a test failure.
+  for (final size in const [Size(360, 640), Size(390, 844)]) {
+    testWidgets('a four player reveal fits a ${size.width.toInt()}px screen',
+        (tester) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+
+      await tester.pumpWidget(TrumpCardsApp(repository: repository));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('4 · 13 each'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Deal'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Wickets'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(RoundReveal), findsOneWidget);
+      expect(find.byType(PlayedCard), findsNWidgets(3));
+    });
+  }
 
   testWidgets('leaving a match returns to the menu', (tester) async {
     await tester.pumpWidget(TrumpCardsApp(repository: repository));

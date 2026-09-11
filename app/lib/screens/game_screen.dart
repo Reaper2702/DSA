@@ -30,19 +30,30 @@ class _GameScreenState extends State<GameScreen> {
     super.dispose();
   }
 
+  bool get _showingResult =>
+      _controller.phase == GamePhase.revealing ||
+      _controller.phase == GamePhase.finished;
+
   /// During a reveal the hand has already moved on, so show the card that was
   /// actually played rather than the next one up.
   TrumpCard? get _cardOnShow {
     final result = _controller.lastResult;
-    final showingResult = _controller.phase == GamePhase.revealing ||
-        _controller.phase == GamePhase.finished;
-    if (showingResult && result != null) {
+    if (_showingResult && result != null) {
       for (final reveal in result.reveals) {
         if (reveal.playerId == GameController.humanId) return reveal.card;
       }
       return null;
     }
     return _controller.humanTopCard;
+  }
+
+  Map<String, RevealedCard> get _opponentReveals {
+    final result = _controller.lastResult;
+    if (!_showingResult || result == null) return const {};
+    return {
+      for (final reveal in result.reveals)
+        if (reveal.playerId != GameController.humanId) reveal.playerId: reveal,
+    };
   }
 
   /// While a stat is being picked the round is yet to be counted, so show the
@@ -82,6 +93,9 @@ class _GameScreenState extends State<GameScreen> {
                     thinkingId: _controller.phase == GamePhase.aiChoosing
                         ? game.chooser.id
                         : null,
+                    turn: game.roundNumber,
+                    reveals: _opponentReveals,
+                    stat: _showingResult ? result?.stat : null,
                   ),
                 ),
                 Expanded(

@@ -74,9 +74,24 @@ class _Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.fromLTRB(24, 32, 24, 32),
+      child: Column(
         children: [
+          Expanded(child: _options(context)),
+          // Pinned so the primary action is reachable on a short screen
+          // without scrolling past the settings.
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
+            child: FilledButton(onPressed: onPlay, child: const Text('Deal')),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _options(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(24, 28, 24, 8),
+      children: [
           const Text(
             'TRUMP CARDS',
             textAlign: TextAlign.center,
@@ -158,12 +173,9 @@ class _Menu extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 28),
-          FilledButton(onPressed: onPlay, child: const Text('Deal')),
-          const SizedBox(height: 16),
-          const _HowToPlay(),
-        ],
-      ),
+        const SizedBox(height: 12),
+        const _HowToPlay(),
+      ],
     );
   }
 }

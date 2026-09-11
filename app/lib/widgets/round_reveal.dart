@@ -3,7 +3,8 @@ import 'package:trump_engine/trump_engine.dart';
 
 import '../theme.dart';
 
-/// The panel that shows what everybody played once a round resolves.
+/// The verdict bar under the table. The cards themselves are shown on the
+/// table, so this only has to say who took them.
 class RoundReveal extends StatelessWidget {
   const RoundReveal({
     super.key,
@@ -19,15 +20,24 @@ class RoundReveal extends StatelessWidget {
   final String continueLabel;
 
   String get _headline {
-    if (result.isTie) {
-      return 'Tie on ${result.stat.label} — ${result.potSize} cards carry over';
-    }
+    if (result.isTie) return 'Tied — nobody takes the cards';
     final winner = result.reveals.firstWhere((r) => r.isWinner);
     final takes = '${result.cardsAwarded} '
         '${result.cardsAwarded == 1 ? 'card' : 'cards'}';
     return winner.playerId == humanId
         ? 'You take $takes'
         : '${winner.playerName} takes $takes';
+  }
+
+  String? get _footnote {
+    if (result.potSize > 0) {
+      return '${result.potSize} cards wait in the pot for the next winner';
+    }
+    if (result.eliminatedIds.isEmpty) return null;
+    return result.eliminatedIds.contains(humanId)
+        ? 'You are out of cards'
+        : 'Knocked out: ${result.eliminatedIds.length} player'
+            '${result.eliminatedIds.length == 1 ? '' : 's'}';
   }
 
   Color get _accent {
@@ -38,122 +48,62 @@ class RoundReveal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-      decoration: BoxDecoration(
-        color: AppColors.feltDeep,
-        border: Border(top: BorderSide(color: _accent, width: 3)),
+    final footnote = _footnote;
+    return TweenAnimationBuilder<double>(
+      key: ValueKey(result.roundNumber),
+      tween: Tween(begin: 0, end: 1),
+      duration: const Duration(milliseconds: 280),
+      curve: Curves.easeOutCubic,
+      builder: (context, t, child) => Opacity(
+        opacity: t,
+        child: Transform.translate(offset: Offset(0, (1 - t) * 28), child: child),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            result.stat.label.toUpperCase(),
-            style: TextStyle(
-              fontSize: 11,
-              letterSpacing: 1.4,
-              fontWeight: FontWeight.w700,
-              color: Colors.white.withValues(alpha: 0.6),
-            ),
-          ),
-          const SizedBox(height: 2),
-          Text(
-            _headline,
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w700,
-              color: _accent,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Flexible(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  for (final reveal in result.reveals)
-                    _RevealRow(
-                      reveal: reveal,
-                      stat: result.stat,
-                      isHuman: reveal.playerId == humanId,
-                    ),
-                ],
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 18),
+        decoration: BoxDecoration(
+          color: AppColors.feltDeep,
+          border: Border(top: BorderSide(color: _accent, width: 3)),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              result.stat.label.toUpperCase(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 11,
+                letterSpacing: 1.4,
+                fontWeight: FontWeight.w700,
+                color: Colors.white.withValues(alpha: 0.6),
               ),
             ),
-          ),
-          const SizedBox(height: 12),
-          FilledButton(onPressed: onContinue, child: Text(continueLabel)),
-        ],
-      ),
-    );
-  }
-}
-
-class _RevealRow extends StatelessWidget {
-  const _RevealRow({
-    required this.reveal,
-    required this.stat,
-    required this.isHuman,
-  });
-
-  final RevealedCard reveal;
-  final StatDefinition stat;
-  final bool isHuman;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 18,
-            child: reveal.isWinner
-                ? const Icon(
-                    Icons.emoji_events_rounded,
-                    size: 16,
-                    color: AppColors.gold,
-                  )
-                : null,
-          ),
-          Expanded(
-            child: RichText(
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              text: TextSpan(
+            const SizedBox(height: 3),
+            Text(
+              _headline,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 19,
+                fontWeight: FontWeight.w800,
+                color: _accent,
+              ),
+            ),
+            if (footnote != null) ...[
+              const SizedBox(height: 3),
+              Text(
+                footnote,
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white.withValues(alpha: 0.9),
+                  fontSize: 12,
+                  color: Colors.white.withValues(alpha: 0.65),
                 ),
-                children: [
-                  TextSpan(
-                    text: isHuman ? 'You' : reveal.playerName,
-                    style: TextStyle(
-                      fontWeight:
-                          reveal.isWinner ? FontWeight.w700 : FontWeight.w500,
-                      color: reveal.isWinner ? AppColors.gold : Colors.white,
-                    ),
-                  ),
-                  TextSpan(
-                    text: '  ${reveal.card.name}',
-                    style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.6),
-                    ),
-                  ),
-                ],
               ),
-            ),
-          ),
-          const SizedBox(width: 8),
-          Text(
-            stat.format(reveal.value),
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-              color: reveal.isWinner ? AppColors.gold : Colors.white,
-            ),
-          ),
-        ],
+            ],
+            const SizedBox(height: 12),
+            FilledButton(onPressed: onContinue, child: Text(continueLabel)),
+          ],
+        ),
       ),
     );
   }

@@ -41,7 +41,9 @@ class AppTheme {
           backgroundColor: AppColors.gold,
           foregroundColor: AppColors.feltDeep,
           minimumSize: const Size.fromHeight(52),
-          textStyle: const TextStyle(
+          // Derived from the text theme so the button keeps the app's font
+          // family rather than falling back to the platform default.
+          textStyle: base.textTheme.labelLarge?.copyWith(
             fontSize: 16,
             fontWeight: FontWeight.w700,
             letterSpacing: 0.3,
