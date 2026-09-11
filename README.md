@@ -114,10 +114,12 @@ settings, set Pages to build from the default branch's `/docs` folder, and the
 policy lands at `https://<user>.github.io/<repo>/privacy-policy.html`. That is
 the URL the Play Console asks for.
 
-Replace the two `REPLACE_WITH_` placeholders in the file before publishing it.
 The policy claims the app collects nothing and requests no permissions, which
-is true of the release build today — if a later version adds analytics,
-crash reporting, or any network call, update the page first.
+is true of the release build today — if a later version adds analytics, crash
+reporting, or any network call, update the page first.
+
+Once you pick a Play Console developer name, put it in the page footer so the
+listing and the policy agree.
 
 ### Still to do before a first release
 

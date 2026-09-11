@@ -19,6 +19,14 @@ val keystoreProperties = Properties().apply {
 }
 val hasReleaseKeystore = keystorePropertiesFile.exists()
 
+if (!hasReleaseKeystore) {
+    logger.warn(
+        "WARNING: android/key.properties not found. Release builds will be " +
+            "signed with the debug key, which the Play Console rejects. See " +
+            "the README for how to create an upload key."
+    )
+}
+
 android {
     namespace = "com.trumpcards.trump_cards"
     compileSdk = flutter.compileSdkVersion
